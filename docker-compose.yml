@@ -1,0 +1,22 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgres:10.15-alpine
+    restart: always
+    environment:
+      TZ: Asia/Taipei
+      POSTGRES_PASSWORD: admin
+    volumes:
+      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+#      - ./pgdata:/var/lib/postgresql/data
+      - pgdata:/var/lib/postgresql/data
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 7890:8080
+
+volumes:
+  pgdata:
