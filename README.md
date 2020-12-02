@@ -1,4 +1,7 @@
 
+docker network create -d overlay --attachable svc-overlay-network
+
+docker stack deploy -c docker-compose.yml postrgres
 
 docker-compose up
 
