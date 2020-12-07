@@ -9,9 +9,11 @@ services:
     environment:
       TZ: Asia/Taipei
       POSTGRES_PASSWORD: admin
+#      PGDATA: /var/lib/postgresql/data/pgdata
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
 #      - ./pgdata:/var/lib/postgresql/data
+#      - ./postgres_data:/var/lib/postgresql/data
       - pgdata:/var/lib/postgresql/data
 
   adminer:
